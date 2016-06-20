@@ -1,0 +1,21 @@
+<div class="container">
+  <div  [hidden]="submitted">
+    <h1>{{greeting}}  {{userdata?.epitet}}   {{userdata?.name}} </h1>
+    <form *ngIf='active' #greetForm="ngForm">
+      <div class="form-group">
+        <input type="text" class="form-control" required
+            ngControl="name"  #name ="ngForm" >
+        <div [hidden]="name.valid || name.pristine" class="alert alert-danger">
+         Хм.. я думаю Вы забыли ввести свое имя. Стоит попробовать еще разок.
+        </div>
+      </div>
+      <button type="submit" class="btn btn-default" [disabled]="!greetForm.form.valid" (click)="getGreeting(name.value)">Готово!</button>
+
+
+
+      
+
+
+
+
+
